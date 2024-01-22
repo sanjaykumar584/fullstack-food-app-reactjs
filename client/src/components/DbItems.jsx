@@ -1,37 +1,78 @@
-import React from 'react'
-import { MaterialTable } from "material-table";
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import React from 'react';
+import {DataTable} from './';
+import { HiCurrencyRupee } from "react-icons/hi";
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteAProduct, getAllProducts } from '../api';
+import { setAllProducts } from '../context/actions/productActions';
+import { alertNull, alertSuccess } from '../context/actions/alertActions';
 
 const DbItems = () => {
-  const defaultTheme = createTheme();
+  const products = useSelector(state => state.products);
+  const dispatch = useDispatch();
   return (
     <div className='flex items-center justify-center pt-6 gap-4 w-full'>
-      <ThemeProvider theme={defaultTheme}>
-      <MaterialTable
-      title="Simple Action Preview"
-      columns={[
-        { title: 'Name', field: 'name' },
-        { title: 'Surname', field: 'surname' },
-        { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
+      <DataTable columns={[
         {
-          title: 'Birth Place',
-          field: 'birthCity',
-          lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-        },
-      ]}
-      data={[
-        { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-        { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
-      ]}        
-      actions={[
-        {
-          icon: 'save',
-          tooltip: 'Save User',
-          onClick: (event, rowData) => alert("You saved " + rowData.name)
+          title: 'Image',
+          field: 'imageURL',
+          render: rowData => (
+            <img
+              className='w-32 h-16 object-contain rounded-md'
+              src={rowData.imageURL}
+              alt=''
+            />
+          ),
+        }, {
+          title: "Name",
+          field: "product_name"
+        }, {
+          title: "Category",
+          field: "product_category"
+        }, {
+          title: "Price",
+          field: "product_price",
+          render: rowData => {
+            return <p className='text-lg font-semibold text-textColor flex items-center justify-center gap-2'>
+              <HiCurrencyRupee className='text-red-400'/>
+              {parseFloat(rowData.product_price).toFixed(2)};
+            </p>
+          }
         }
+
       ]}
-    />
-      </ThemeProvider>
+        title={"List of Products"}
+        data={products}
+        actions={[
+          {
+            icon: 'edit',
+            tooltip: 'Edit Data',
+            onClick: (event, rowData) => {
+              alert("Edit" + rowData.product_name);
+            }
+          }, 
+          {
+            icon: "delete",
+            tooltip: "Delete Data",
+            onClick: (event, rowData) => {
+              if (
+                window.confirm("Are you sure, you want to perform this aciton")
+              ) {
+                deleteAProduct(rowData.product_id).then((res) => {
+                  console.log(res);
+                  dispatch(alertSuccess("Product Deleted"));
+                  setInterval(() => {
+                    dispatch(alertNull());
+                  }, 3000);
+                  getAllProducts().then((data) => {
+                    console.log(data);
+                    dispatch(setAllProducts(data));
+                  });
+                });
+              }
+            },
+          }
+        ]}
+      />
     </div>
   )
 }

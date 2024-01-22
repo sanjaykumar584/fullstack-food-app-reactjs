@@ -17,8 +17,8 @@ export const statuses = [
 export const randomData = [
   {
     id: 1,
-    imageURL:
-      "https://firebasestorage.googleapis.com/v0/b/food-app-nov-22.appspot.com/o/Pictures%2F1674704862591_dessert2.png?alt=media&token=7c001521-f0ac-40a8-b07a-42dc4aab444a",
+    imageURL: 
+      "https://firebasestorage.googleapis.com/v0/b/fullstack-food-app-react-5edcc.appspot.com/o/images%2F1705664672341_i1.png?alt=media&token=03295eb7-ba95-4210-8c3b-ac2d1924b818",
     product_name: "Iceream",
     product_category: "Chocolate & vanilla",
     product_price: "23.00",
@@ -26,7 +26,7 @@ export const randomData = [
   {
     id: 2,
     imageURL:
-      "https://firebasestorage.googleapis.com/v0/b/food-app-nov-22.appspot.com/o/Pictures%2F1674797445483_f1.png?alt=media&token=8b46c1ce-9600-4f9a-8ff7-3518b1bf6db3",
+      "https://firebasestorage.googleapis.com/v0/b/fullstack-food-app-react-5edcc.appspot.com/o/images%2F1705664421546_f1.png?alt=media&token=3983f983-6187-4a82-8624-1eebe3a64b8f",
     product_name: "Strawberries",
     product_category: "Fresh Strawberries",
     product_price: "18.00",
@@ -34,7 +34,7 @@ export const randomData = [
   {
     id: 3,
     imageURL:
-      "https://firebasestorage.googleapis.com/v0/b/food-app-nov-22.appspot.com/o/Pictures%2F1674797463817_f2.png?alt=media&token=69ab9301-ef04-4690-bc68-e537cdc1985e",
+      "https://firebasestorage.googleapis.com/v0/b/fullstack-food-app-react-5edcc.appspot.com/o/images%2F1705664719165_f2.png?alt=media&token=7f6ea223-c32b-43f9-9103-fd6ff2c544ed",
     product_name: "Pine Apple",
     product_category: "Juicy Apples",
     product_price: "16.00",
@@ -42,7 +42,7 @@ export const randomData = [
   {
     id: 4,
     imageURL:
-      "https://firebasestorage.googleapis.com/v0/b/food-app-nov-22.appspot.com/o/Pictures%2F1674797033037_c3.png?alt=media&token=7644719f-95ae-42f2-8227-3fb843faa567",
+      "https://firebasestorage.googleapis.com/v0/b/fullstack-food-app-react-5edcc.appspot.com/o/images%2F1705664782066_c3.png?alt=media&token=80274e80-98e5-462a-89ea-e5f75dc4a514",
     product_name: "Chicken Kebab",
     product_category: "Mixed Kebab Plate",
     product_price: "22.0",
@@ -50,7 +50,7 @@ export const randomData = [
   {
     id: 5,
     imageURL:
-      "https://firebasestorage.googleapis.com/v0/b/food-app-nov-22.appspot.com/o/Pictures%2F1674797376326_d4.png?alt=media&token=7d37b12c-f3a8-4561-974e-de6574ddfea6",
+      "https://firebasestorage.googleapis.com/v0/b/fullstack-food-app-react-5edcc.appspot.com/o/images%2F1705664823377_d4.png?alt=media&token=70618044-771a-418a-82f1-20f57e404314",
     product_name: "Mojito",
     product_category: "Cocktail Drinks",
     product_price: "10.0",
@@ -58,7 +58,7 @@ export const randomData = [
   {
     id: 6,
     imageURL:
-      "https://firebasestorage.googleapis.com/v0/b/food-app-nov-22.appspot.com/o/Pictures%2F1674797198643_cu3.png?alt=media&token=e630d851-91aa-4135-a241-0ab961a7c4ee",
+      "https://firebasestorage.googleapis.com/v0/b/fullstack-food-app-react-5edcc.appspot.com/o/images%2F1705664939752_cu3.png?alt=media&token=ce5600db-2043-4d11-88b0-fe87422a1da2",
     product_name: "Prawn Masala",
     product_category: "Spicy Masala",
     product_price: "20.0",
