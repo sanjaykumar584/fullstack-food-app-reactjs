@@ -1,9 +1,8 @@
-> Fullstack Food Delivery Application using Reactjs
-> [Follow Us](https://codewithvetri.web.app)
+> Fullstack Food Delivery Application using ReactJs
 
 ![This is the Project Thumbnail](./snap.png)
 
-# To check the node bersion
+# To check the node version
 
 ```
 node --version
