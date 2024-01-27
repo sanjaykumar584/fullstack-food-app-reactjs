@@ -16,10 +16,12 @@ app.use(express.json());
 // Cross Orgin
 const cors = require("cors");
 app.use(cors({origin: true}));
-app.use((req, res, next) => {
-    res.set("Access-Control-Allow-Origin", "*");
+app.use((_req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+  
     next();
-});
+  });
 
 // Firebase Credentials
 admin.initializeApp({

@@ -6,16 +6,34 @@ import { FcClearFilters } from "react-icons/fc";
 import { useDispatch, useSelector } from 'react-redux';
 import { setCartOff } from '../context/actions/displayCartActions';
 import { HiCurrencyRupee } from 'react-icons/hi';
-import { getAllCartItems, increaseItemQuantity } from '../api';
+import { baseURL, getAllCartItems, increaseItemQuantity } from '../api';
 import { setCartItems } from '../context/actions/cartActions';
 import { alertNull, alertSuccess } from '../context/actions/alertActions';
+import axios from 'axios';
+import {loadStripe} from '@stripe/stripe-js/pure';
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const cart = useSelector(state => state.cart);
   const [total, setTotal] = useState(0);
 
-  const handleCheckOut = () => {};
+  const handleCheckOut = async () => {
+    const data = {
+      user: user,
+      cart: cart,
+      total: total,
+    };
+    axios
+      .post(`${baseURL}/api/products/create-checkout-session`, { data })
+      .then((res) => {
+        console.log(res);
+        if (res.data.url) {
+          window.location.href = res.data.url;
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     let tot = 0;
@@ -49,8 +67,9 @@ const Cart = () => {
             {cart && cart?.length > 0 ? cart?.map((item, i) => 
               <CartItemCard key={i} index={i} data={item} />
             ) : null}
-          </div><div className="bg-zinc-800 rounded-t-[60px] w-full h-[35%] flex flex-col items-center justify-center px-4 py-6 gap-24">
-              <div className="w-full flex items-center justify-evenly">
+          </div>
+          <div className="bg-zinc-800 rounded-t-[60px] w-full h-[35%] flex flex-col items-center justify-start px-4 py-6 gap-5">
+              <div className="w-full flex items-center justify-evenly mt-5">
                 <p className="text-3xl text-zinc-500 font-semibold">Total</p>
                 <p className="text-3xl text-orange-500 font-semibold flex items-center justify-center gap-1">
                   <HiCurrencyRupee className="text-primary" />
